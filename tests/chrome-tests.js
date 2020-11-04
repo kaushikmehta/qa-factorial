@@ -24,5 +24,22 @@ describe('Factorial Tests', () => {
     expect(outputVal).toEqual(`The factorial of ${inputNumber} is: ${expectedOutput}`);
 
   });
+
+  test('should return a number for a negative integer input', async () => {
+    const inputNumber = -5;
+    const expectedOutput = -120;
+
+    const inputField = await driver.findElement(By.id('number'));
+    await inputField.sendKeys(inputNumber);
+
+    const calculateButton = await driver.findElement(By.id('getFactorial'));
+    calculateButton.click();
+
+    const output = await driver.wait(until.elementLocated(By.id('resultDiv')));
+    const outputVal = await driver.wait(until.elementTextContains(output, 'The factorial of')).getText();
+    expect(outputVal).toEqual(`The factorial of ${inputNumber} is: ${expectedOutput}`);
+
+  });
+
   
 });
