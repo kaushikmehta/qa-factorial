@@ -10,4 +10,4 @@ Implicit submission is vital to assistive technologies and impaired users that c
 Form submission should be triggered and correspondig response is sent back to user
 
 ## Actual Result
-Nothing happens. Hitting the enter(return) key on the keyboard does not trigger the submission of the form.
+Nothing happens. Hitting the enter(return) key on the keyboard does not trigger the submission of the form by hitting the enter(return) key on their keyboard.
