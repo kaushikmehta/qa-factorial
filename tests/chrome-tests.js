@@ -41,5 +41,18 @@ describe('Factorial Tests', () => {
 
   });
 
-  
+  test('should return undefined for positive integer above 170', async () => {
+    const inputNumber = 175;
+    const expectedOutput = 'undefined';
+
+    const inputField = await driver.findElement(By.id('number'));
+    await inputField.sendKeys(inputNumber);
+
+    const calculateButton = await driver.findElement(By.id('getFactorial'));
+    calculateButton.click();
+
+    const output = await driver.findElement(By.id('resultDiv'));
+    const outputVal = await driver.wait(until.elementTextContains(output, 'The factorial of')).getText();
+    expect(outputVal).toEqual(`The factorial of ${inputNumber} is: ${expectedOutput}`);
+  });
 });
